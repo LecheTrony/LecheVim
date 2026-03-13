@@ -54,8 +54,12 @@ nvim
   </ul>
 
   <h2>📸 Screenshots</h2>
-  <p>(Aquí puedes añadir capturas de tu LecheVim en acción, mostrando el dashboard y los temas.)</p>
-
+  <p>Menu de inicio</p>
+  <img scr="screenshots/screenshot_20260310_174330.webp" alt="Menu LecheVim" width="600">
+  <p>Gestor de archivos</p>
+  <img scr="screenshots/screenshot_20260312_172740.webp" alt="Gestor LecheVim" width="600">
+  <p>Codificando</p>
+  <img scr="screenshots/screenshot_20260312_172810.webp" alt="Gestor LecheVim" width="600">
   <h2>✨ Créditos</h2>
   <p>
     Inspirado en la comunidad de Neovim y adaptado con cariño para un flujo de trabajo productivo y estético.  
