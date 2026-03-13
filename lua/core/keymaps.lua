@@ -25,4 +25,14 @@ vim.keymap.set("i", "<C-S-z>", "<C-o><C-r>", { desc = "Rehacer en inserción" })
 
 
 
------------------------------------------------------------------------------------------------Modo Space
+-----------------------------------------------------------------------------------------------Opciones leader(Espacio)
+-- Define la tecla leader como espacio
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+-- Ejecutar archivo actual con toggleterm
+vim.keymap.set("n", "<leader>r", function()
+  local file = vim.fn.expand("%")
+  require("toggleterm").exec("python3 " .. file, 1, 12, "horizontal")
+end, { desc = "Ejecutar archivo actual" })
+

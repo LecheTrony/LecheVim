@@ -9,9 +9,25 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Lista de plugins
+------------------------------------------------------------- Lista de plugins
 require("lazy").setup({
   { "nvim-lua/plenary.nvim" },
+------------------------------------------------------------- Utilidades
+------------------------------ Terminal
+  {
+    "akinsho/toggleterm.nvim",
+    version = "*",
+    config = function()
+      require("toggleterm").setup({
+        size = 15,
+        open_mapping = [[<leader>t]], -- abre/cierra la terminal con <leader>t
+        shade_terminals = true,
+        direction = "horizontal",     -- puede ser "vertical" o "float"
+      })
+    end,
+  },
+
+
 
 --------------------------------------------------------------------------------python Plugins
 ---------------------------------------Gestion de servidores LSP
