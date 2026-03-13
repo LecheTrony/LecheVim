@@ -20,12 +20,23 @@ require("lazy").setup({
     config = function()
       require("toggleterm").setup({
         size = 15,
-        open_mapping = [[<leader>t]], -- abre/cierra la terminal con <leader>t
+        open_mapping = [[<leader>t]],
         shade_terminals = true,
-        direction = "horizontal",     -- puede ser "vertical" o "float"
+        direction = "float",
+        start_in_insert = false, -- 👈 abre en modo normal
+        insert_mappings = false, -- 👈 evita que se creen mapeos automáticos en insert
+        float_opts = {
+            border = "single", -- estilos "single", "double", "shadow", "curved", "rounded"
+            width = 100,
+            height = 30,
+        },
       })
+
+    -- Atajo para salir rápido de insert en terminal
+      vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { desc = "Salir de insert en terminal" })
     end,
   },
+
 
 
 
@@ -215,6 +226,35 @@ require("lazy").setup({
       vim.cmd.colorscheme("dracula")
     end,
   },
+------------------------------------------------------------------------Estetica
+-----------------------barra
+  {
+    "nvim-lualine/lualine.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      -------------- Función personalizada para mostrar tu logo/ícono
+      local function lechevim_icon()
+        return "🚀 LECHEVIM "
+      end
+
+      require("lualine").setup({
+        options = {
+          theme = "tokyonight", -- cámbialo por el tema que uses
+          section_separators = { left = "", right = "" },
+          component_separators = { left = "", right = "" },
+        },
+        sections = {
+          lualine_a = { "mode" },
+          lualine_b = { "branch" },
+          lualine_c = { "filename", lechevim_icon }, -- aquí aparece tu logo/ícono
+          lualine_x = { "encoding", "fileformat", "filetype" },
+          lualine_y = { "progress" },
+          lualine_z = { "location" },
+        },
+      })
+    end,
+  },
+
 ------------------------------------------------------------------------Porta 
 
   {
@@ -231,7 +271,7 @@ require("lazy").setup({
         "██║     ██╔══╝  ██║     ██╔══██║██╔══╝  ╚██╗ ██╔╝██║██║╚██╔╝██║",
         "███████╗███████╗╚██████╗██║  ██║███████╗ ╚████╔╝ ██║██║ ╚═╝ ██║",
         "╚══════╝╚══════╝ ╚═════╝╚═╝  ╚═╝╚══════╝  ╚═══╝  ╚═╝╚═╝     ╚═╝",
-        "                         Version 0.2 🚀",
+        "                         Version 0.3 🚀",
         "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⣛⣥⣮⣭⣛⡛⠿⣿⣿⣿⣿⡙⢿⣿⡿⢟⣣⣴⣶⣭⡻⣿⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
         "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⣛⣭⣶⣿⠿⣛⣛⣛⣛⣛⣓⣂⣻⠿⠿⠿⠆⣩⣴⣿⣿⣿⣿⣿⣿⣌⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
         "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⢋⣴⣿⣿⣿⣿⣿⠈⡻⣿⣿⣿⣿⣿⣿⣿⡛⠂⠟⠃⣉⡙⠛⣛⡛⠿⣛⣛⣁⣒⡲⠦⢭⣙⠻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
