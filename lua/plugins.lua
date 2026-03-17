@@ -26,7 +26,7 @@ require("lazy").setup({
         start_in_insert = false, -- 👈 abre en modo normal
         insert_mappings = false, -- 👈 evita que se creen mapeos automáticos en insert
         float_opts = {
-            border = "single", -- estilos "single", "double", "shadow", "curved", "rounded"
+            border = "curved", -- estilos "single", "double", "shadow", "curved", "rounded"
             width = 100,
             height = 30,
         },
@@ -218,7 +218,7 @@ require("lazy").setup({
     config = function()
       require("dracula").setup({
         colors = {
-          bg = "#1a0f1f", -- tu violeta oscuro personalizado
+          bg = "#1e1e2e", -- Aqui es para cambiarlo de color, usa HEX
         },
         transparent_bg = false,
         italic_comment = true,
